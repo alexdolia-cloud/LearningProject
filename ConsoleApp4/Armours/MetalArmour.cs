@@ -8,9 +8,9 @@ namespace ConsoleApp4.Armours
 {
     internal class MetalArmour : Armour
     {
-        public override void ArmourType()
+        public MetalArmour()
         {
-            Armours += 40;
+            ShieldIntegrity = 140;
         }
     }
 }

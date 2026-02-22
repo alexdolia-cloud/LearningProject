@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp4.Armours
 {
-    public class Armour : Warrior
+    public class Armour
     {
-        public int Armours { get; set; }
-
-        public virtual void ArmourType()
-        {
-
-        }
+        public int ShieldIntegrity { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace ConsoleApp4.Armours
 {
     internal class SnakeArmour : Armour
     {
-        public override void ArmourType()
+        public SnakeArmour()
         {
-            Armours += 25;
+            ShieldIntegrity = 125;
         }
     }
 }
