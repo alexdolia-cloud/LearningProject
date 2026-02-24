@@ -8,8 +8,6 @@ namespace ConsoleApp4
         {
             SnakeArmour snakeArmour = new SnakeArmour();
             Console.WriteLine(snakeArmour.ShieldIntegrity);
-
-
         }
     }
 }
