@@ -4,6 +4,7 @@ namespace ConsoleApp4
 {
     internal class Program
     {
+        // useless code
         static void Main(string[] args)
         {
             SnakeArmour snakeArmour = new SnakeArmour();
