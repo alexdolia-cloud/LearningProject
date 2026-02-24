@@ -1,10 +1,10 @@
-﻿namespace ConsoleApp4.Armours
+﻿namespace ConsoleApp4.Armours.ConcreteArmours
 {
     internal class DiamondArmour : Armour
     {
         public DiamondArmour()
         {
-            base.ShieldIntegrity = 165;
+            ShieldIntegrity = 165;
         }
     }
 }

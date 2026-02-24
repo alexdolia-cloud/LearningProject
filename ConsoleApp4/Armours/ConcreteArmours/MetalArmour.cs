@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp4.Armours
+namespace ConsoleApp4.Armours.ConcreteArmours
 {
-    internal class SnakeArmour : Armour
+    internal class MetalArmour : Armour
     {
-        public SnakeArmour()
+        public MetalArmour()
         {
-            ShieldIntegrity = 125;
+            ShieldIntegrity = 140;
         }
     }
 }
