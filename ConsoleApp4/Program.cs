@@ -1,5 +1,4 @@
-﻿using ConsoleApp4.Armours;
-using ConsoleApp4.Armours.ConcreteArmours;
+﻿using ConsoleApp4.Armours.ConcreteArmours;
 
 namespace ConsoleApp4
 {
