@@ -23,6 +23,7 @@
             CanTelekines = canTelekines;
             Legal = legal;
         }
+
         public Hero(int speed, int flySpeed, int strong, bool canTeleport, bool canTelekines)
         {
             Speed = speed;
@@ -63,8 +64,7 @@
                 Console.Write("У героя телекинез, ");
             else
                 Console.Write("У героя нету телекинеза,");
-        }
-            
+        }            
             
         public void IsLegal()
         {

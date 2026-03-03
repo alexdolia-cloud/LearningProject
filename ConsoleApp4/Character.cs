@@ -16,6 +16,7 @@
         {
             Health += amount;
         }
+
         public virtual void Attack()
         {
             Console.WriteLine("Персонаж атакует!");
