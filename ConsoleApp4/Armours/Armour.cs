@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp4.Armours
 {
-    public class Armour
+
+    public class Armour : Warrior
     {
-        public int ShieldIntegrity { get; set; }
+        public int ShieldIntegrity { get; set; } = 100;
+
     }
 }

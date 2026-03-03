@@ -10,7 +10,7 @@ namespace ConsoleApp4.Armours.ConcreteArmours
     {
         public MetalArmour()
         {
-            ShieldIntegrity = 140;
+            ShieldIntegrity += 40;
         }
     }
 }

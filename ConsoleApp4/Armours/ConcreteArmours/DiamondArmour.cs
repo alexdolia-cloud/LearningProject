@@ -4,7 +4,7 @@
     {
         public DiamondArmour()
         {
-            ShieldIntegrity = 165;
+            ShieldIntegrity += 65;
         }
     }
 }
