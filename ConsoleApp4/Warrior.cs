@@ -1,10 +1,5 @@
 ﻿using ConsoleApp4.Armours;
 using ConsoleApp4.Armours.ConcreteArmours;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp4
 {
@@ -33,7 +28,7 @@ namespace ConsoleApp4
             }
             else if (armour is SnakeArmour snakeArmour)
             {
-                Armour.ShieldIntegrity *= snakeArmour.ShieldIntegrity;
+                Armour.ShieldIntegrity += snakeArmour.ShieldIntegrity;
             }
             else if (armour is MetalArmour metalArmour)
             {
