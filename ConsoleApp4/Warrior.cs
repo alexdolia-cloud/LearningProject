@@ -36,6 +36,7 @@ namespace ConsoleApp4
             }
         }
 
+
         public override void Attack()
         {
             Console.WriteLine("Воин атакует!");
