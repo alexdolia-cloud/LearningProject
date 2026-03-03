@@ -1,26 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp4.Armours;
+using ConsoleApp4.Armours.ConcreteArmours;
 
 namespace ConsoleApp4
 {
     public class Warrior : Character
     {
-        public int Armour { get; set; } = 100;
+        public Armour Armour { get; set; }
 
         public override void TakeDamage(int damage)
         {
-           if (Armour >= damage)
+           if (Armour.ShieldIntegrity >= damage)
            {
-                Armour -= damage;
+                Armour.ShieldIntegrity -= damage;
            }
-           else if (Armour < damage) 
+           else if (Armour.ShieldIntegrity < damage) 
            {
-                Health = Health - (damage - Armour);
-                Armour = 0;
+                Health = Health - (damage - Armour.ShieldIntegrity);
+                Armour.ShieldIntegrity = 0;
            }
+        }
+
+        public void ArmourSet(Armour armour)
+        {
+            if (armour is DiamondArmour diamondArmour )
+            {
+                Armour.ShieldIntegrity += diamondArmour.ShieldIntegrity;
+            }
+            else if (armour is SnakeArmour snakeArmour)
+            {
+                Armour.ShieldIntegrity += snakeArmour.ShieldIntegrity;
+            }
+            else if (armour is MetalArmour metalArmour)
+            {
+                Armour.ShieldIntegrity += metalArmour.ShieldIntegrity;
+            }
         }
 
         public override void Attack()

@@ -10,7 +10,7 @@ namespace ConsoleApp4.Armours.ConcreteArmours
     {
         public SnakeArmour()
         {
-            ShieldIntegrity = 125;
+            ShieldIntegrity = ShieldIntegrity + 25;
         }
     }
 }

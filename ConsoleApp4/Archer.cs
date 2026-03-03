@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace ConsoleApp4
+﻿namespace ConsoleApp4
 {
     public class Archer : Character
     {

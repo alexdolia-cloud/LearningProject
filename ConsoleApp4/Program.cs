@@ -8,6 +8,12 @@ namespace ConsoleApp4
         {
             SnakeArmour snakeArmour = new SnakeArmour();
             Console.WriteLine(snakeArmour.ShieldIntegrity);
+
+            DiamondArmour diamondArmour = new DiamondArmour();
+            Console.WriteLine(diamondArmour.ShieldIntegrity);
+
+            MetalArmour metalArmour = new MetalArmour();
+            Console.WriteLine(metalArmour.ShieldIntegrity);
         }
     }
 }
