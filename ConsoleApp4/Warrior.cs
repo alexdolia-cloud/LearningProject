@@ -40,5 +40,10 @@ namespace ConsoleApp4
         {
             Console.WriteLine("Воин атакует!");
         }
+
+        public void PrintType()
+        {
+            Console.WriteLine(this.GetType());
+        }
     }
 }
