@@ -14,6 +14,9 @@ namespace ConsoleApp4
 
             MetalArmour metalArmour = new MetalArmour();
             Console.WriteLine(metalArmour.ShieldIntegrity);
+
+            Warrior warrior = new Warrior();
+            warrior.PrintType();
         }
     }
 }
