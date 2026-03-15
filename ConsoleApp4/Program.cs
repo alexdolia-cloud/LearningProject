@@ -2,10 +2,10 @@
 {
     internal class Program
     {
-        // Generic types (!!)
-        // Func & Actions (!!!)
-        // Delegase => Events (!!!)
-        // IComparer (...)
+        // Generic types (3)
+        // Func & Actions (4)
+        // Delegase => Events (1, 2)
+        // IComparer (5)
 
         public delegate void Print(string message);
 
