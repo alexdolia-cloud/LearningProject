@@ -1,23 +1,28 @@
-﻿using ConsoleApp4.Armours.ConcreteArmours;
-
-namespace ConsoleApp4
+﻿namespace ConsoleApp4
 {
     internal class Program
     {
+        // Generic types (!!)
+        // Func & Actions (!!!)
+        // Delegase => Events (!!!)
+        // IComparer (...)
+
+        public delegate void Print(string message);
+
         static void Main(string[] args)
         {
-            SnakeArmour snakeArmour = new SnakeArmour();
-            Console.WriteLine(snakeArmour.ShieldIntegrity);
+            MultiplyAndPrint(3, 9, PrintMessage);
+        }
 
-            DiamondArmour diamondArmour = new DiamondArmour();
-            Console.WriteLine(diamondArmour.ShieldIntegrity);
+        public static void MultiplyAndPrint(int x, int y, Print print)
+        {
+            print.Invoke((x * y).ToString());
+        }
 
-            MetalArmour metalArmour = new MetalArmour();
-            Console.WriteLine(metalArmour.ShieldIntegrity);
-
-            Warrior warrior = new Warrior();
-            warrior.PrintType();
+        public static void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
         }
     }
-}
 
+}
