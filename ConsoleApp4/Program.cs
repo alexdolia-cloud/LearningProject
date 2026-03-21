@@ -1,27 +1,24 @@
 ﻿namespace ConsoleApp4
 {
+    public delegate void Math(int result);
     internal class Program
     {
-        // Generic types (3)
-        // Func & Actions (4)
-        // Delegase => Events (1, 2)
-        // IComparer (5)
-
-        public delegate void Print(string message);
-
         static void Main(string[] args)
         {
-            MultiplyAndPrint(3, 9, PrintMessage);
+            Multiply(5, 7, Print);
+            Sum(5, 7, Print);
         }
-
-        public static void MultiplyAndPrint(int x, int y, Print print)
+        public static void Multiply(int a, int b, Math math)
         {
-            print.Invoke((x * y).ToString());
+            math.Invoke(a * b);
         }
-
-        public static void PrintMessage(string message)
+        public static void Sum(int a, int b, Math math)
         {
-            Console.WriteLine(message);
+            math.Invoke(a + b);
+        }
+        public static void Print(int result)
+        {
+            Console.WriteLine(result);
         }
     }
 
