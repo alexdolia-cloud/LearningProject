@@ -1,28 +1,68 @@
 ﻿namespace ConsoleApp4
 {
-    public delegate void Math(int result);
+    public delegate void AccountHandler(string message);
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            Multiply(5, 7, Print);
-            Sum(5, 7, Print);
+            var account = new Account(100);
+
+            account.Put(20);
+            Console.WriteLine($"Current state of account: {account.Sum}");
+            account.Take(70);
+            Console.WriteLine($"Current state of account: {account.Sum}");
+            account.Take(180);
+            Console.WriteLine($"Current state of account: {account.Sum}");
+        }
+    }
+
+    class Account
+    {
+        public event AccountHandler PutNotify;
+        public event AccountHandler TakeNotify;
+
+        public int Sum { get; private set; }
+
+        public Account(int sum)
+        {
+            IninializeNotifyEvent();
+
+            Sum = sum;
         }
 
-        public static void Multiply(int a, int b, Math math)
+        private void IninializeNotifyEvent()
         {
-            math.Invoke(a * b);
+            PutNotify += PrintPutNotify;
+            TakeNotify += PrintTakeNotify;
         }
 
-        public static void Sum(int a, int b, Math math)
+        public void Put(int sum)
         {
-            math.Invoke(a + b);
+            Sum += sum;
+            PutNotify?.Invoke($"The following amount was credited to the account: {sum}");
         }
 
-        public static void Print(int result)
+        public void Take(int sum)
         {
-            Console.WriteLine(result);
+            if (Sum >= sum)
+                Sum -= sum;
+
+            TakeNotify?.Invoke($"Take {sum}");
+        }
+
+        public void PrintPutNotify(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public void PrintTakeNotify(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
