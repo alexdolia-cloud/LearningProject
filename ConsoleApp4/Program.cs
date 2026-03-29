@@ -1,68 +1,57 @@
 ﻿namespace ConsoleApp4
 {
-    public delegate void AccountHandler(string message);
+    delegate void Action<in T>(T n1, T n2);
+
+    delegate T Func<in R, out T>(R r, R r2);
+
+    delegate bool Predicate<in T>(T obj);
 
     internal class Program
     {
+        // Action, Func, Predicate
+        // Generics (!)
+
         static void Main(string[] args)
         {
-            var account = new Account(100);
+            //var list = new List<int>()
+            //{
+            //    1, 2, 3, 4, 5, 6, 7, 8, 9
+            //};
 
-            account.Put(20);
-            Console.WriteLine($"Current state of account: {account.Sum}");
-            account.Take(70);
-            Console.WriteLine($"Current state of account: {account.Sum}");
-            account.Take(180);
-            Console.WriteLine($"Current state of account: {account.Sum}");
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    if (list[i] >= 4)
+            //        Console.WriteLine(list[i]);
+            //}
+
+            //foreach (var item in list)
+            //{
+            //    if (item >= 4)
+            //        Console.WriteLine(item);
+            //}
+
+            //list.Where(el => el >= 4).ToList().ForEach(Console.WriteLine);
+
+            var x = DoOperation(3, 3, Multiply);
+
+            Console.WriteLine(x);
         }
-    }
 
-    class Account
-    {
-        public event AccountHandler PutNotify;
-        public event AccountHandler TakeNotify;
-
-        public int Sum { get; private set; }
-
-        public Account(int sum)
+        public static int DoOperation(int a, int b, Func<int, int, int> action)
         {
-            IninializeNotifyEvent();
-
-            Sum = sum;
+            return action.Invoke(a, b);
         }
 
-        private void IninializeNotifyEvent()
+        public static int Add(int x, int y)
         {
-            PutNotify += PrintPutNotify;
-            TakeNotify += PrintTakeNotify;
+            return x + y;
         }
 
-        public void Put(int sum)
+        public static int Multiply(int x, int y)
         {
-            Sum += sum;
-            PutNotify?.Invoke($"The following amount was credited to the account: {sum}");
+            return x * y;
         }
 
-        public void Take(int sum)
-        {
-            if (Sum >= sum)
-                Sum -= sum;
-
-            TakeNotify?.Invoke($"Take {sum}");
-        }
-
-        public void PrintPutNotify(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        }
-
-        public void PrintTakeNotify(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        }
+        public static bool IsPositiveValue(int x, Predicate<int> predicate) => predicate(x);
     }
 }
