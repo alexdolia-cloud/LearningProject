@@ -14,7 +14,10 @@
                 string task = Console.ReadLine();
                 if (task == "")
                 {
-
+                    Console.WriteLine("Input 1 to add new task");
+                    Console.WriteLine("Input 2 to remove task");
+                    Console.WriteLine("Input 3 to see your tasks");
+                    Console.WriteLine("Input 4 to mark tasks");
                     break;
                 }
                 tasks.Add(task);
