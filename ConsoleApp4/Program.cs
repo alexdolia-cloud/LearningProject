@@ -6,6 +6,8 @@
         {
             var todolist = new ToDoList();
 
+            Console.WriteLine("Welcome");
+
             todolist.PrintText();
 
             while (true)
