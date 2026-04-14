@@ -30,6 +30,14 @@
                 {
                     todolist.MarkNotes();
                 }
+                else if (userInput == "5")
+                {
+                    todolist.UnMarkNotes();
+                }
+                else if (userInput == "6")
+                {
+                    todolist.Tutorial();
+                }
                 else
                 {
                     Console.WriteLine("Wrong input please try again");
