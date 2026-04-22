@@ -27,42 +27,46 @@
                 else if (userInput == "2")
                 {
                     Console.WriteLine("Please write number of note which you want to erase");
-                    string removeItem = Console.ReadLine();
-                    todolist.RemoveNotes(removeItem);
+                    int.TryParse(Console.ReadLine(), out int removeItem);
                     if (todolist.Tasks.Any())
+                    {
+                        Console.WriteLine("Your note was removed");
+                        todolist.RemoveNotes(removeItem);
+                    }
+                    else
                     {
                         Console.WriteLine("There is no notes to remove");
                     }
-                    else
-                    {
-                        Console.WriteLine("Your note was removed");
-                    }
+
                 }
                 else if (userInput == "3")
                 {
-                    if (!todolist.Tasks.Any())
-                    {
-                        Console.WriteLine("You haven't add any notes yet");
-                    }
-                    else
+                    if (todolist.Tasks.Any())
                     {
                         string mark = "x";
                         todolist.ShowNotes(mark);
                     }
+                    else
+                    {
+                        Console.WriteLine("You haven't add any notes yet");
+                    }
                 }
                 else if (userInput == "4")
                 {
-                    bool check = false;
-                    string markInput = Console.ReadLine();
-                    todolist.MarkNotes(markInput, check);
-                    if (check ==  false)
+                    int.TryParse(Console.ReadLine(), out int markInputIndex);
+
+                    if (todolist.Tasks.Any())
                     {
-                        Console.WriteLine("Your note has been marked");
+                        Console.WriteLine("Input number of note to mark it");
+                        todolist.MarkNotes(markInputIndex);
                     }
                     else
                     {
-                        Console.WriteLine("Your note has been unmarked");
+                        Console.WriteLine("You didnt add any notes yet");
                     }
+                    PrintText();
+
+
                 }
                 else if (userInput == "5")
                 {
