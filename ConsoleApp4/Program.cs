@@ -27,24 +27,35 @@
                 else if (userInput == "2")
                 {
                     Console.WriteLine("Please write number of note which you want to erase");
-                    int.TryParse(Console.ReadLine(), out int removeItem);
-                    if (todolist.Tasks.Any())
+                    bool isParsingSucess = int.TryParse(Console.ReadLine(), out int removeItemIndex);   
+
+                    if (isParsingSucess)
                     {
-                        Console.WriteLine("Your note was removed");
-                        todolist.RemoveNotes(removeItem);
+                        if (todolist.Tasks.Count - 1 > removeItemIndex)
+                        {
+                            todolist.RemoveNotes(removeItemIndex);
+                            Console.WriteLine("Your note was removed");
+                        }
+                        //else if (removeItemIndex == 0)
+                        //{
+                        //    Console.WriteLine("0 cant be a number of note (minimum 1)");
+                        //    return;
+                        //}
+                        else
+                        {
+                            Console.WriteLine("Wrong input");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("There is no notes to remove");
-                    }
+                    PrintText();
 
                 }
                 else if (userInput == "3")
                 {
                     if (todolist.Tasks.Any())
                     {
-                        string mark = "x";
-                        todolist.ShowNotes(mark);
+                        string status = "isnt completed";
+                        todolist.ShowNotes(status);
+                        PrintText();
                     }
                     else
                     {
@@ -53,11 +64,10 @@
                 }
                 else if (userInput == "4")
                 {
+                    Console.WriteLine("Input number of note to mark it");
                     int.TryParse(Console.ReadLine(), out int markInputIndex);
-
                     if (todolist.Tasks.Any())
                     {
-                        Console.WriteLine("Input number of note to mark it");
                         todolist.MarkNotes(markInputIndex);
                     }
                     else
