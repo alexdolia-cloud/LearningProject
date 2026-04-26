@@ -27,30 +27,35 @@
                 {
                     if (Tasks[i].IsCompleted == true)
                     {
-                        status = "completed";
+                        status = "| completed";
                     }
                     else if (Tasks[i].IsCompleted == false)
                     {
-                        status = "isnt completed";
+                        status = " | isnt completed";
                     }
                         Console.WriteLine($"{i + 1}) {Tasks[i].Title} {status}");
                 }
-
             }
-
         }
-        public void MarkNotes(int markItemIndex)
+
+        public bool MarkNotes(int markItemIndex)
         {
             if (Tasks[markItemIndex - 1].IsCompleted == false)
             {
-                Tasks[markItemIndex - 1].IsCompleted = true;
-                Console.WriteLine("Your note has been marked");
+                return true;
             }
             else
             {
-                Tasks[markItemIndex - 1].IsCompleted = false;
-                Console.WriteLine("Your note has been unmarked");
+                return false;
             }
+        }
+        public bool IsNoteExists(int chekedIndex)
+        {
+            if (chekedIndex < Tasks.Count && chekedIndex > 0)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }
